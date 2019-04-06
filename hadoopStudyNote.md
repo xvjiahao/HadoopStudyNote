@@ -13,11 +13,11 @@
 &ensp;&ensp;&ensp;&ensp;1.低延时访问 2.小文件存储( 低于单数据节点block大小64M，原因:寻道时间会超过读取时间 )    
 </br>
 (4)结构   
-![Alt text](图片/hdfs结构.png)
+![HDFS结构图](https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/hdfs%E7%BB%93%E6%9E%84.png)
 引用地址:https://www.cnblogs.com/zhangwuji/p/7594725.html   
 名词说明:   
 &ensp;&ensp;&ensp;&ensp;1. NameNode: 主节点，管理HDFS的命名空间, 数据地址映射信息，处理客户端读取请求。  
 &ensp;&ensp;&ensp;&ensp;2. SecondaryNameNode: NameNode主节点的热备份。一方便,它定时将editlogs中的数据持久化，以减少editlogs的大小，从而减少NameNode的启动时间。另一方面，它也避免当NameNode出现意外宕机，而丢失大量的改动信息  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;(a ![Alt text](图片/namenode结构.png)  
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;(b ![Alt text](图片/secondaryNameNode结构.png)  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;(a  ![NameNode结构图](https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/namenode%E7%BB%93%E6%9E%84.png)  
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;(b  ![SecondaryNameNode结构图](https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/secondaryNameNode%E7%BB%93%E6%9E%84.png)  
 上述两张图片的引用地址:https://www.cnblogs.com/chenyaling/p/5521464.html 
