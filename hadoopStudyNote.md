@@ -13,7 +13,7 @@
 &ensp;&ensp;&ensp;&ensp;1.低延时访问 2.小文件存储( 低于单数据节点block大小64M，原因:寻道时间会超过读取时间 )    
 </br>
 (4)结构   
-![HDFS结构图](https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/hdfs%E7%BB%93%E6%9E%84.png)
+![结构图](https://github.com/Zhao233/HadoopStudyNote/blob/master/hdfs%E7%BB%93%E6%9E%84.jpg)
 引用地址:https://www.cnblogs.com/zhangwuji/p/7594725.html   
 名词说明:   
 &ensp;&ensp;&ensp;&ensp;1. NameNode: 主节点，管理HDFS的命名空间, 数据地址映射信息，处理客户端读取请求。  
