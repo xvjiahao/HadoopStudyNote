@@ -13,7 +13,7 @@
 &ensp;&ensp;&ensp;&ensp;1.低延时访问 2.小文件存储( 低于单数据节点block大小64M，原因:寻道时间会超过读取时间 )    
 </br>
 (4)结构 
-<img src="https://github.com/Zhao233/HadoopStudyNote/blob/master/hdfs%E7%BB%93%E6%9E%84.jpg" width="350" height="300" alt="hdfs结构"/>    
+<img src="https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/hdfs%E7%BB%93%E6%9E%84.png" width="350" height="300" alt="hdfs结构"/>    
 引用地址:https://www.cnblogs.com/zhangwuji/p/7594725.html   
 
 名词说明:   
@@ -31,14 +31,14 @@
     (3) 不适用场景: 对延迟要求高的请求服务处理(搜索，服务响应)  
     (4) 结构  
         （a mapreduce架构  
-        <img src="https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/MapReduce%E7%BB%93%E6%9E%84.png" width="350" height="300" alt="图片加载失败时，显示这段字"/>  
+        <img src="https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/MapReduce%E7%BB%93%E6%9E%84.png" width="350" height="300" alt="MapReduce结构"/>  
          名词解释:  
             (1) jobTraker: NameNode上的任务调度中心，负责将任务分配给各个DataNode，并且通过taskTracker检查各个task是否正常运行。    
             (2) taskTraker: task与jobTraker的桥梁，也是task的管理者，负责task的启动关闭等服务。  
         （b mapreduce原理  
-        <img src="https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/mapreduce%E5%8E%9F%E7%90%86.png" width="350" height="300" alt="图片加载失败时，显示这段字"/>    
+        <img src="https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/mapreduce%E5%8E%9F%E7%90%86.png" width="350" height="300" alt="MapReduce原理"/>    
             上述两张图片的地址:https://www.cnblogs.com/ahu-lichang/p/6645074.html  
-            (1) Map: 将任务标注为<key,value>的形式，分给各个DataNode
-            (2) Group(Shuffle): 将完成的相同的key的任务整理在一起，然后再标注为<key,{v1,v2}>的形式传送给Reduce。  
-            注: shuffle作用为将处理目标相同的数据做一个汇总传递给Reduce，减轻Reduce的处理压力。
+            (1) Map: 将任务标注为<key,value>的形式，分给各个DataNode  
+            (2) Group(Shuffle): 将完成的相同的key的任务整理在一起，然后再标注为<key,{v1,v2}>的形式传送给Reduce。    
+            注: shuffle作用为将处理目标相同的数据做一个汇总传递给Reduce，减轻Reduce的处理压力。  
             (3) Reduce: 对Group处理的结果进性合并。
