@@ -42,3 +42,19 @@
             (2) Group(Shuffle): 将完成的相同的key的任务整理在一起，然后再标注为<key,{v1,v2}>的形式传送给Reduce。    
             注: shuffle作用为将处理目标相同的数据做一个汇总传递给Reduce，减轻Reduce的处理压力。  
             (3) Reduce: 对Group处理的结果进性合并。
+
+(20190407)
++ Hadoop资源调度平台(YARN)  
+    (1) 核心思想: YARN是一个资源调度平台，负责为运算程序提供运算资源(内存, 等), 它的地位类似于一个分布式操作系统，而MapReduce等运算框架更像是在它基础上运行的应用程序   
+    (2)架构  
+    <img src="https://github.com/Zhao233/HadoopStudyNote/blob/master/%E5%9B%BE%E7%89%87/Yarn%E7%BB%93%E6%9E%84.png" width="350" height="300" alt="MapReduce结构"/>  
+    图片地址:http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html  
+    Yarn的基本构成由ResouceManager，NodeManager，ApplicationMaster(每个应用程序特有)和Contanier构成
+    1. 名词解释:  
+        (1) ResouceManager: 一个位于NameNode主节点独立运行的进程，负责集群统一的资源管理，调度，分配。以Container为单位进性分配。  
+        (2) NodeManager: 一个位于DataNode从节点独立运行的进程，负责上报节点的状态。负责管理抽象容器(Container)，定时向ResouceManager上报本节点资源使用情况和各个Container运行状态。  
+        (3) ApplicationMaster: 运行在从节点的组件，管理Yarn内运行的应用程序的每个实例，负责调度来自ResouceManager的资源，并通过NodeManager监视执行和资源使用情况。  
+        (4) Container: Container是Yarn中的资源抽象，封装了DataNode运行程序时需要使用到的资源(cpu，内存，磁盘，网络等)。Yarn会为每个任务分配一个Contaniner，并且任务只能使用该Container中描述的资源。Container是一个动态资源划分单位
+
+    2. 参考来源: http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html  
+                https://www.cnblogs.com/wcwen1990/p/6737985.html
